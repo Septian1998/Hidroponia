@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "ESP32 DevKit V1.1")(type Legacy)(uri "E:/SKRIPSI/Board Terbaru/ESP32 DevKit V1.1.lib")(options "")(descr ""))
+  (lib (name DCtoDC_LM2596)(type Legacy)(uri "E:/SKRIPSI/Board Terbaru/DCtoDC_LM2596.lib")(options "")(descr ""))
+)
