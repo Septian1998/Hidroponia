@@ -33,7 +33,7 @@ void loop()
         {
             HTTPClient http;
 
-            String serverPath = serverName + "?field1=27&field2=37&field3=47" ;
+            String serverPath = serverName + "?field1=22&field2=32&field3=42";
 
             http.begin(serverPath.c_str());
 
