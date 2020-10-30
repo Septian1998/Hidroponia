@@ -4,7 +4,7 @@
 const char* ssid = "Bang Bud";
 const char* pass = "septian19";
 
-String serverName = "hidroponia-app.herokuapp.com/datafrontend";
+String serverName = "http://hidroponia-app.herokuapp.com/simpandata";
 
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
@@ -33,7 +33,7 @@ void loop()
         {
             HTTPClient http;
 
-            String serverPath = serverName + "?field1=27";
+            String serverPath = serverName + "?field1=27&field2=37&field3=47" ;
 
             http.begin(serverPath.c_str());
 
