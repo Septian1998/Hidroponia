@@ -3,7 +3,7 @@ void sendGET()
     if(WiFi.status() == WL_CONNECTED)
     {
         HTTPClient http;
-        String serverPath = serverName + "?field1=22&field2=32&field3=42";
+        String serverPath = address + "?field1=22&field2=32&field3=42";
         http.begin(serverPath.c_str());
         int httpResponseCode = http.GET();
         if (httpResponseCode>0)

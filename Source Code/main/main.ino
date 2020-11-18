@@ -25,20 +25,24 @@
 
 #define ssid "Bang Bud"
 #define pass "septian19"
-#define address "http://hidroponia-app.herokuapp.com/simpandata"
 #define SD_CS 5
+
+String address = "http://hidroponia-app.herokuapp.com/simpandata";
 
 unsigned long lastTime = 0;
 unsigned long timerDelay = 1000; //10 detik
 
 //variable pH
 uint16_t valpH[10];
-float avgpH, avgpHValue, pHValue;
+float avgpH, avgpHValue, pHValue, jumlahpH;
 
 //variable TDS
-uint16_t valTDS[10];
-float avgTDS, avgTDSValue, TDSValue;
-String strTDS, strpH;
+//uint16_t valTDS[10];
+//float avgTDS, avgTDSValue, TDSValue, jumlahTDS;
+//String strTDS, strpH;
+
+//variable suhu
+float suhu;
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
@@ -51,14 +55,13 @@ String dataMessage;
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 
-float temperature;
-
 //definisikan NTP Client untuk mendapatkan waktu
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
 
 //definisikan servo
 Servo kran1;
+float def;
 
 //Variebel untuk menyimpan tanggal dan waktu
 String formatedDate;

@@ -23,16 +23,16 @@ void getReadings()
     //Serial.println(pHValue);
 
     //baca sensor TDS
-    for (int j = 0; j < 10; j++)
-    {
-        valTDS[j] = analogRead(TDS_sns);
-        delay(30);
-    }
-    for (int k = 0; k < 10; k++)
-    {
-        jumlahTDS += valTDS[k];
-    }
-    avgTDS = jumlahTDS / 10;
-    avgTDSValue = (avgTDS * 3.3) / 4095;
-    TDSValue = -0.2606 * avgTDSValue  + 4.9147;
+    //for (int j = 0; j < 10; j++)
+    //{
+        //valTDS[j] = analogRead(TDS_sns);
+        //delay(30);
+    //}
+    //for (int k = 0; k < 10; k++)
+    //{
+        //jumlahTDS += valTDS[k];
+    //}
+    //avgTDS = jumlahTDS / 10;
+    //avgTDSValue = (avgTDS * 3.3) / 4095;
+    //TDSValue = -0.2606 * avgTDSValue  + 4.9147;
 }

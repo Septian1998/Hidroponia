@@ -92,7 +92,7 @@ void rule()
 void defuzzyfikasi()
 {
     error_1 = error;
-    error = sp - pH;
+    error = sp - pHValue;
     dError = error - error_1;
     rule();
     kran1.write(round(def));
