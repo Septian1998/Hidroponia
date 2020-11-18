@@ -7,13 +7,17 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-//library untuk dapatkan waktu dari NTP Server
+//library untuk dapatkan waktu dari NTP Server dan GET
 #include <WiFi.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
+#include <HTTPClient.h>
 
 //library untuk LCD_I2C
 #include <LiquidCrystal_I2C.h>
+
+//library Servo
+#include <Servo_ESP32.h>
 
 #define pH_sns 34
 #define TDS_sns 35
@@ -24,8 +28,16 @@
 #define address "http://hidroponia-app.herokuapp.com/simpandata"
 #define SD_CS 5
 
-unsigned long tempValue = 0, tdsValue = 0, pHValue = 0, avgValuepH;
-int Celcius, buf[10], temp;
+unsigned long lastTime = 0;
+unsigned long timerDelay = 1000; //10 detik
+
+//variable pH
+uint16_t valpH[10];
+float avgpH, avgpHValue, pHValue;
+
+//variable TDS
+uint16_t valTDS[10];
+float avgTDS, avgTDSValue, TDSValue;
 String strTDS, strpH;
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
@@ -35,7 +47,7 @@ RTC_DATA_ATTR int readingID = 0;
 
 String dataMessage;
 
-#define ONE_WIRE_BUS 21
+#define ONE_WIRE_BUS 32
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 
@@ -45,6 +57,9 @@ float temperature;
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
 
+//definisikan servo
+Servo kran1;
+
 //Variebel untuk menyimpan tanggal dan waktu
 String formatedDate;
 String dayStamp;
@@ -53,10 +68,8 @@ String timeStamp;
 void setup()
 {
     Serial.begin(115200);
-    pinMode(pH_sns, INPUT);
-    pinMode(TDS_sns, INPUT);
-    //pinMode(temp_sns, INPUT);
-
+    kran1.attach(13);
+    
     //konek ke Wi-Fi network dengan SSI dan password
     Serial.print("Connecting to ");
     Serial.println(ssid);
@@ -92,6 +105,7 @@ void setup()
         Serial.println("ERROR - SD card Initialization failed!");
         return;
     }
+
     //jika file data.tt tidak ada
     //buat file di SD card dan tulisdata label
     File file = SD.open("/data.txt");
@@ -106,77 +120,22 @@ void setup()
         Serial.println("File already exists");  
     }
     file.close();
-
-    //Memulai library DallasTemperature
-    sensors.begin();
 }
 
 void loop()
 {
+    getReadings();
+    fuzifikasi();
+    rule();
+    defuzzyfikasi();
 
-}
-
-void getReadings()
-{
-    //baca sensor temperatur
-    sensors.requestTemperatures(); 
-    temperature = sensors.getTempCByIndex(0); // Temperatur dalam Celsius
-    //temperature = sensors.getTempFByIndex(0); // Temperatur dalam Fahrenheit
-    Serial.print("Temperature: ");
-    Serial.println(temperature);
-
-    //baca sensor suhu
-    for (int i = 0; i < 10; i++)
+    if((millis() - lastTime) > timerDelay)
     {
-        buf[i] = analogRead(pH_sns);
-        delay(30);
+        sendGET();
+        getTimeStamp();
+        logSDCard();
+        lastTime = millis();
     }
-    for (int i = 0; i < 9; i++)
-    {
-        for (int j = i + 1; j < 10; j++)
-        {
-            if (buf[i] > buf[j])
-            {
-                temp = buf[i];
-                buf[i] = buf[j];
-                buf[j] = temp;
-            }
-        }
-    }
-    avgValuepH = 0;
-    for (int i = 2; i < 8; i++)
-    {
-        avgValuepH += buf[i];
-    }
-    avgValuepH = avgValuepH / 6;
-    pHValue = (avgValuepH * 3.3) / 4095;
-    pHValue = -0.2606 * pHValue + 4.9147; //-5.70 adalah gradien dan 21.34 adalah koefisien kalibrasi
-    //Serial.println(pHValue);
-}
-
-void getTimeStamp()
-{
-    while (!timeClient.update())
-    {
-        timeClient.forceUpdate();
-    }
-    formatedDate = timeClient.getFormattedDate();
-    Serial.println(formatedDate);
-    //ekstrak tanggal
-    int splitT = formatedDate.indexOf("T");
-    dayStamp = formatedDate.substring(0,splitT);
-    Serial.println(dayStamp);
-    //ekstrak waktu
-    timeStamp = formatedDate.substring(splitT+1, formatedDate.length()-1);
-    Serial.println(timeStamp);
-}
-
-void logSDCard()
-{
-    dataMessage = String(readingID) + "," + String(dayStamp) + "," + String(timeStamp) + "," + String(temperature) + "\r\n";
-    Serial.print("Save data: ");
-    Serial.println(dataMessage);
-    appendFile(SD, "/data.txt", dataMessage.c_str());
 }
 
 // Write to the SD card (DON'T MODIFY THIS FUNCTION)
