@@ -30,7 +30,9 @@
 String address = "http://hidroponia-app.herokuapp.com/simpandata";
 
 unsigned long lastTime = 0;
-unsigned long timerDelay = 1000; //10 detik
+unsigned long timerDelay = 10000; //10 detik
+unsigned long lastTimeLCD = 0;
+unsigned long timerDelayLCD = 50000; //10 detik
 
 //variable pH
 uint16_t valpH[10];
@@ -72,6 +74,8 @@ void setup()
 {
     Serial.begin(115200);
     kran1.attach(13);
+    lcd.begin();
+    lcd.backlight();
     
     //konek ke Wi-Fi network dengan SSI dan password
     Serial.print("Connecting to ");
@@ -138,6 +142,11 @@ void loop()
         getTimeStamp();
         logSDCard();
         lastTime = millis();
+    }
+    if((millis() - lastTimeLCD) > timerDelayLCD)
+    {
+        LCD_Display();
+        lastTimeLCD = millis();
     }
 }
 
