@@ -1,12 +1,12 @@
 void LCD_Display()
 {
-    lcd.clear();
+    //lcd.clear();
     lcd.setCursor(0, 0 );
     lcd.print("pH  : " + String(pHValue));
     lcd.setCursor(0, 1);
-    lcd.print("TDS : " /*+ String(TDSValue)*/);
-    lcd.setCursor(0, 3);
-    lcd.print("Suhu: " /*+ String(suhu)*/);
+    lcd.print("TDS : " + String(TDSValue));
+    lcd.setCursor(0, 2);
+    lcd.print("Suhu: " + String(suhu));
     lcd.setCursor(14, 0);
     lcd.print("|");
     lcd.setCursor(14, 1);

@@ -1,10 +1,75 @@
-float error_1, error, dError, pwm, sp = 1.65;
+float AND(float x1, float x2)
+{
+    return(x1<x2?x1:x2);
+}
+
+float OR(float x1, float x2)
+{
+    return(x1>x2?x1:x2);
+}
+
+float MFs(float in, float a, float b, float c)
+{
+    if (in<a || in>c) return 0;
+    else if(in<b) return (in-a)/(b-a);
+    else return (c-in)/(c-b);
+}
+
+float MFt1(float in, float a, float b)
+{
+    if (in <= a) return 1;
+    else if(in > a && in < b) return (b-in)/(b-a);
+    else if(in >= b) return 0;
+}
+
+float MFt2(float in, float a, float b)
+{
+    if (in <= a) return 0;
+    else if(in > a  && in < b) return (in-a)/(b-a);
+    else if(in >= b) return 1;
+}
+
+float fuzzy(float e, float dE)
+{
+    float ErZ, ErS, ErM, ErB;
+    float dEZ, dES, dEM, dEB;
+    float opZ, opS, opM, opB, opL;
+    float out;
+
+    ErZ = MFt1(e, 0.1, 0.2);
+    ErS = MFs(e, 0.1, 0.2, 0.3);
+    ErM = MFs(e, 0.2, 0.4, 0.6);
+    ErB = MFt2(e, 0.5, 0.6);
+    Serial.println(String(ErZ) + "," + String(ErS) + "," + String(ErM) + "," + String(ErB));
+
+    dEZ = MFt1(dE, 0.1, 0.2);
+    dES = MFs(dE, 0.1, 0.2, 0.3);
+    dEM = MFs(dE, 0.2, 0.4, 0.6);
+    dEB = MFt2(dE, 0.5, 0.6);
+    Serial.println(String(dEZ) + "," + String(dES) + "," + String(dEM) + "," + String(dEB));
+
+    #define oZ 0
+    #define oOPS 22
+    #define oOPM 45
+    #define oOPB 67
+    #define oOPL 90
+
+    opL = OR(AND(ErB, dEB), OR(AND(ErM, dEB), AND(ErB, dEM)));
+    opB = OR(AND(ErS, dEB), OR(AND(ErM, dEM), AND(ErB, dES)));
+    opM = OR(AND(ErZ, dEB), OR(AND(ErS, dEM), OR(AND(ErM, dES), AND(ErB, dEZ))));
+    opS = OR(AND(ErZ, dEM), OR(AND(ErS, dES), AND(ErM, dEZ)));
+    opZ = OR(AND(ErZ, dES), OR(AND(ErS, dEZ), AND(ErZ, dEZ)));
+    //Serial.println(String(opL));
+    out = ((opL*oOPL)+(opB*oOPB)+(opM*oOPM)+(opS*oOPS)+(oZ*opZ))/(opL+opB+opM+opS+opZ);
+    return out;
+}
+/*float error_1, error, dError, pwm, sp = 4.5;
 float UErrorN, UdErrorN, Ututup;
 float UErrorZ, UdErrorZ, Usedang;
 float UErrorP, UdErrorP, Ubuka;
-float rule1, rule2a, rule2b, rule3a, rule3b, rule4, rule5a, rule5b, rule6a, rule6b, rule7;
+float rule1, rule2a, rule2b, rule3a, rule3b, rule4, rule5a, rule5b, rule6a, rule6b, rule7;*/
 
-void error_pH_N()
+/*void error_pH_N()
 {
     if(error <= -1){UErrorN = 1;}
     else if(error >= -1 && error <= 0){UErrorN = (0 - error)/1;}
@@ -96,4 +161,4 @@ void defuzzyfikasi()
     dError = error - error_1;
     rule();
     kran1.write(round(def));
-}
+}*/
