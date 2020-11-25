@@ -16,7 +16,7 @@
 //library untuk LCD_I2C
 #include <LiquidCrystal_I2C.h>
 
-//library Servo
+//library untuk Servo
 #include <Servo_ESP32.h>
 
 #define pH_sns 34
@@ -29,7 +29,7 @@
 
 TaskHandle_t TaskFLC;
 
-String address = "http://hidroponia-app.herokuapp.com/simpandata";
+String address = "http://hidroponia-app.herokuapp.com/simpandata?";
 
 unsigned long lastTime = 0;
 unsigned long timerDelay = 60000; //10 detik
@@ -122,7 +122,7 @@ void setup()
     {
         //Serial.println("File doens't exist");
         //Serial.println("Creating file...");
-        writeFile(SD, "/data.txt", "Reading ID, Date, Hour, Temperature \r\n");
+        writeFile(SD, "/data.txt", "Reading ID, Date, Hour, Temperature, TDS, pH \r\n");
     }
     //else 
     //{
