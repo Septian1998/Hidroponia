@@ -1,4 +1,5 @@
 (fp_lib_table
   (lib (name ESP32-DevKit_V1)(type KiCad)(uri "E:/SKRIPSI/Board Terbaru/ESP32-DevKit_V1.pretty")(options "")(descr ""))
   (lib (name DCtoDC)(type KiCad)(uri "E:/SKRIPSI/Board Terbaru/DCtoDC.pretty")(options "")(descr ""))
+  (lib (name DIY)(type KiCad)(uri E:/SKRIPSI/Hidroponia/MainBoard/DIY.pretty)(options "")(descr ""))
 )

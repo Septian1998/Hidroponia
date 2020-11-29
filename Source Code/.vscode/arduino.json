@@ -1,7 +1,7 @@
 {
     "board": "diy_attiny:avr:attiny85_diy",
-    "configuration": "boot=optiboot,clock=8MHz,core=FullCore,print=BinHexDec,millis_ppm=1p6,lto=enable,bodlevel=2v7,advclk=auto,advfrq=auto,advups=auto",
+    "configuration": "boot=none,clock=8MHz,core=FullCore,print=BinHexDec,millis_ppm=1p6,lto=enable,bodlevel=2v7,advclk=auto,advfrq=auto,advups=auto",
     "sketch": "I2C_sns/I2C_sns.ino",
-    "programmer": "AVRISP mkII",
-    "port": "COM15"
+    "programmer": "ArduinoISP",
+    "port": "COM12"
 }

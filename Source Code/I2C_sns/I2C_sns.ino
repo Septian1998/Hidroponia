@@ -43,7 +43,6 @@ void setup()
 {
   TinyWireS.begin(I2CSlaveAddress);      // Begin I2C Communication
   TinyWireS.onRequest(transmit);         // When requested, call function transmit()
-
   wdt_enable(WDTO_500MS);     // Watchdog
 }
 

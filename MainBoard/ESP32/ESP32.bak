@@ -26,17 +26,6 @@ F 3 "" H 9200 2000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MCU_Microchip_ATtiny:ATtiny85-20PU U1
-U 1 1 5F813D63
-P 2650 3250
-F 0 "U1" H 2121 3296 50  0000 R CNN
-F 1 "ATtiny85-20PU" H 2121 3205 50  0000 R CNN
-F 2 "Package_DIP:DIP-8_W7.62mm" H 2650 3250 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf" H 2650 3250 50  0001 C CNN
-	1    2650 3250
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector:Conn_01x04_Male J1
 U 1 1 5F815AB8
 P 950 2650
@@ -70,269 +59,6 @@ F 3 "~" H 950 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_Small R4
-U 1 1 5F817DC5
-P 1800 5400
-F 0 "R4" H 1859 5446 50  0000 L CNN
-F 1 "10k" H 1859 5355 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1800 5400 50  0001 C CNN
-F 3 "~" H 1800 5400 50  0001 C CNN
-	1    1800 5400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Transistor_FET:2N7000 Q1
-U 1 1 5F81829E
-P 1450 5500
-F 0 "Q1" V 1701 5500 50  0000 C CNN
-F 1 "2N7000" V 1792 5500 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-92L_Inline" H 1650 5425 50  0001 L CIN
-F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7000.pdf" H 1450 5500 50  0001 L CNN
-	1    1450 5500
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R_Small R1
-U 1 1 5F818D3C
-P 1050 5400
-F 0 "R1" H 1109 5446 50  0000 L CNN
-F 1 "10k" H 1109 5355 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1050 5400 50  0001 C CNN
-F 3 "~" H 1050 5400 50  0001 C CNN
-	1    1050 5400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1050 5500 1050 5600
-Wire Wire Line
-	1050 5600 1250 5600
-Wire Wire Line
-	1800 5500 1800 5600
-Wire Wire Line
-	1800 5600 1650 5600
-$Comp
-L power:+3V3 #PWR0101
-U 1 1 5F81AB27
-P 1050 5200
-F 0 "#PWR0101" H 1050 5050 50  0001 C CNN
-F 1 "+3V3" H 1065 5373 50  0000 C CNN
-F 2 "" H 1050 5200 50  0001 C CNN
-F 3 "" H 1050 5200 50  0001 C CNN
-	1    1050 5200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1050 5200 1050 5250
-Wire Wire Line
-	1450 5300 1450 5250
-Wire Wire Line
-	1450 5250 1050 5250
-Connection ~ 1050 5250
-Wire Wire Line
-	1050 5250 1050 5300
-$Comp
-L power:+5V #PWR0102
-U 1 1 5F81BBB6
-P 1800 5200
-F 0 "#PWR0102" H 1800 5050 50  0001 C CNN
-F 1 "+5V" H 1815 5373 50  0000 C CNN
-F 2 "" H 1800 5200 50  0001 C CNN
-F 3 "" H 1800 5200 50  0001 C CNN
-	1    1800 5200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1800 5200 1800 5300
-Wire Wire Line
-	1050 5600 950  5600
-Connection ~ 1050 5600
-Wire Wire Line
-	1800 5600 1900 5600
-Connection ~ 1800 5600
-Text Label 1900 5600 0    50   ~ 0
-H_pH_SNS
-Text Label 950  5600 2    50   ~ 0
-L_pH_SNS
-$Comp
-L Device:R_Small R5
-U 1 1 5F82130F
-P 1800 6350
-F 0 "R5" H 1859 6396 50  0000 L CNN
-F 1 "10k" H 1859 6305 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1800 6350 50  0001 C CNN
-F 3 "~" H 1800 6350 50  0001 C CNN
-	1    1800 6350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Transistor_FET:2N7000 Q2
-U 1 1 5F821315
-P 1450 6450
-F 0 "Q2" V 1701 6450 50  0000 C CNN
-F 1 "2N7000" V 1792 6450 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-92L_Inline" H 1650 6375 50  0001 L CIN
-F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7000.pdf" H 1450 6450 50  0001 L CNN
-	1    1450 6450
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R_Small R2
-U 1 1 5F82131B
-P 1050 6350
-F 0 "R2" H 1109 6396 50  0000 L CNN
-F 1 "10k" H 1109 6305 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1050 6350 50  0001 C CNN
-F 3 "~" H 1050 6350 50  0001 C CNN
-	1    1050 6350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1050 6450 1050 6550
-Wire Wire Line
-	1050 6550 1250 6550
-Wire Wire Line
-	1800 6450 1800 6550
-Wire Wire Line
-	1800 6550 1650 6550
-$Comp
-L power:+3V3 #PWR0103
-U 1 1 5F821325
-P 1050 6150
-F 0 "#PWR0103" H 1050 6000 50  0001 C CNN
-F 1 "+3V3" H 1065 6323 50  0000 C CNN
-F 2 "" H 1050 6150 50  0001 C CNN
-F 3 "" H 1050 6150 50  0001 C CNN
-	1    1050 6150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1050 6150 1050 6200
-Wire Wire Line
-	1450 6250 1450 6200
-Wire Wire Line
-	1450 6200 1050 6200
-Connection ~ 1050 6200
-Wire Wire Line
-	1050 6200 1050 6250
-$Comp
-L power:+5V #PWR0104
-U 1 1 5F821330
-P 1800 6150
-F 0 "#PWR0104" H 1800 6000 50  0001 C CNN
-F 1 "+5V" H 1815 6323 50  0000 C CNN
-F 2 "" H 1800 6150 50  0001 C CNN
-F 3 "" H 1800 6150 50  0001 C CNN
-	1    1800 6150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1800 6150 1800 6250
-Wire Wire Line
-	1050 6550 950  6550
-Connection ~ 1050 6550
-Wire Wire Line
-	1800 6550 1900 6550
-Connection ~ 1800 6550
-Text Label 1900 6550 0    50   ~ 0
-H_TDS_SNS
-Text Label 950  6550 2    50   ~ 0
-L_TDS_SNS
-$Comp
-L Device:R_Small R9
-U 1 1 5F8250F1
-P 3750 5400
-F 0 "R9" H 3809 5446 50  0000 L CNN
-F 1 "10k" H 3809 5355 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3750 5400 50  0001 C CNN
-F 3 "~" H 3750 5400 50  0001 C CNN
-	1    3750 5400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Transistor_FET:2N7000 Q4
-U 1 1 5F8250F7
-P 3400 5500
-F 0 "Q4" V 3651 5500 50  0000 C CNN
-F 1 "2N7000" V 3742 5500 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-92L_Inline" H 3600 5425 50  0001 L CIN
-F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7000.pdf" H 3400 5500 50  0001 L CNN
-	1    3400 5500
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R_Small R7
-U 1 1 5F8250FD
-P 3000 5400
-F 0 "R7" H 3059 5446 50  0000 L CNN
-F 1 "10k" H 3059 5355 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3000 5400 50  0001 C CNN
-F 3 "~" H 3000 5400 50  0001 C CNN
-	1    3000 5400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3000 5500 3000 5600
-Wire Wire Line
-	3000 5600 3200 5600
-Wire Wire Line
-	3750 5500 3750 5600
-Wire Wire Line
-	3750 5600 3600 5600
-$Comp
-L power:+3V3 #PWR0105
-U 1 1 5F825107
-P 3000 5200
-F 0 "#PWR0105" H 3000 5050 50  0001 C CNN
-F 1 "+3V3" H 3015 5373 50  0000 C CNN
-F 2 "" H 3000 5200 50  0001 C CNN
-F 3 "" H 3000 5200 50  0001 C CNN
-	1    3000 5200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3000 5200 3000 5250
-Wire Wire Line
-	3400 5300 3400 5250
-Wire Wire Line
-	3400 5250 3000 5250
-Connection ~ 3000 5250
-Wire Wire Line
-	3000 5250 3000 5300
-$Comp
-L power:+5V #PWR0106
-U 1 1 5F825112
-P 3750 5200
-F 0 "#PWR0106" H 3750 5050 50  0001 C CNN
-F 1 "+5V" H 3765 5373 50  0000 C CNN
-F 2 "" H 3750 5200 50  0001 C CNN
-F 3 "" H 3750 5200 50  0001 C CNN
-	1    3750 5200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3750 5200 3750 5300
-Wire Wire Line
-	3000 5600 2900 5600
-Connection ~ 3000 5600
-Wire Wire Line
-	3750 5600 3850 5600
-Connection ~ 3750 5600
-Text Label 3850 5600 0    50   ~ 0
-H_TEMP_SNS
-Text Label 2900 5600 2    50   ~ 0
-L_TEMP_SNS
-$Comp
-L Device:R_Small R6
-U 1 1 5F8377F6
-P 1800 7300
-F 0 "R6" H 1859 7346 50  0000 L CNN
-F 1 "10k" H 1859 7255 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1800 7300 50  0001 C CNN
-F 3 "~" H 1800 7300 50  0001 C CNN
-	1    1800 7300
-	1    0    0    -1  
-$EndComp
-$Comp
 L Transistor_FET:2N7000 Q3
 U 1 1 5F8377FC
 P 1450 7400
@@ -342,17 +68,6 @@ F 2 "Package_TO_SOT_THT:TO-92L_Inline" H 1650 7325 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7000.pdf" H 1450 7400 50  0001 L CNN
 	1    1450 7400
 	0    1    1    0   
-$EndComp
-$Comp
-L Device:R_Small R3
-U 1 1 5F837802
-P 1050 7300
-F 0 "R3" H 1109 7346 50  0000 L CNN
-F 1 "10k" H 1109 7255 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1050 7300 50  0001 C CNN
-F 3 "~" H 1050 7300 50  0001 C CNN
-	1    1050 7300
-	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	1050 7400 1050 7500
@@ -428,7 +143,7 @@ L_pH_SNS
 Text Label 8700 1800 2    50   ~ 0
 L_TDS_SNS
 Text Label 8700 1900 2    50   ~ 0
-L_TEMP_SNS
+TEMP_SNS
 Text Label 8700 2100 2    50   ~ 0
 OUT1
 Text Label 8700 2200 2    50   ~ 0
@@ -722,7 +437,7 @@ H_pH_SNS
 Text Label 10050 4700 0    50   ~ 0
 H_TDS_SNS
 Text Label 10200 5200 0    50   ~ 0
-H_TEMP_SNS
+TEMP_SNS
 $Comp
 L Device:R_Small R15
 U 1 1 5F8C6EE5
@@ -1363,17 +1078,6 @@ Connection ~ 5450 4100
 Wire Wire Line
 	5450 4100 5650 4100
 $Comp
-L Device:R_Small R10
-U 1 1 5F901D74
-P 3250 7300
-F 0 "R10" H 3309 7346 50  0000 L CNN
-F 1 "10k" H 3309 7255 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3250 7300 50  0001 C CNN
-F 3 "~" H 3250 7300 50  0001 C CNN
-	1    3250 7300
-	1    0    0    -1  
-$EndComp
-$Comp
 L Transistor_FET:2N7000 Q5
 U 1 1 5F901D7A
 P 2900 7400
@@ -1383,17 +1087,6 @@ F 2 "Package_TO_SOT_THT:TO-92L_Inline" H 3100 7325 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7000.pdf" H 2900 7400 50  0001 L CNN
 	1    2900 7400
 	0    1    1    0   
-$EndComp
-$Comp
-L Device:R_Small R8
-U 1 1 5F901D80
-P 2500 7300
-F 0 "R8" H 2559 7346 50  0000 L CNN
-F 1 "10k" H 2559 7255 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 2500 7300 50  0001 C CNN
-F 3 "~" H 2500 7300 50  0001 C CNN
-	1    2500 7300
-	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	2500 7400 2500 7500
@@ -1446,4 +1139,284 @@ Text Label 3350 7500 0    50   ~ 0
 H_SDA
 Text Label 2400 7500 2    50   ~ 0
 L_SDA
+$Comp
+L power:GND #PWR0140
+U 1 1 5F8D2970
+P 4650 5150
+F 0 "#PWR0140" H 4650 4900 50  0001 C CNN
+F 1 "GND" H 4655 4977 50  0000 C CNN
+F 2 "" H 4650 5150 50  0001 C CNN
+F 3 "" H 4650 5150 50  0001 C CNN
+	1    4650 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 5100 4650 5150
+Text Label 950  6550 2    50   ~ 0
+L_TDS_SNS
+Text Label 1900 6550 0    50   ~ 0
+H_TDS_SNS
+Wire Wire Line
+	1800 6150 1800 6250
+$Comp
+L power:+5V #PWR0104
+U 1 1 5F821330
+P 1800 6150
+F 0 "#PWR0104" H 1800 6000 50  0001 C CNN
+F 1 "+5V" H 1815 6323 50  0000 C CNN
+F 2 "" H 1800 6150 50  0001 C CNN
+F 3 "" H 1800 6150 50  0001 C CNN
+	1    1800 6150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1050 6200 1050 6250
+Wire Wire Line
+	1450 6200 1050 6200
+Wire Wire Line
+	1450 6250 1450 6200
+Connection ~ 1050 6200
+Wire Wire Line
+	1050 6150 1050 6200
+$Comp
+L power:+3V3 #PWR0103
+U 1 1 5F821325
+P 1050 6150
+F 0 "#PWR0103" H 1050 6000 50  0001 C CNN
+F 1 "+3V3" H 1065 6323 50  0000 C CNN
+F 2 "" H 1050 6150 50  0001 C CNN
+F 3 "" H 1050 6150 50  0001 C CNN
+	1    1050 6150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1800 6550 1900 6550
+Wire Wire Line
+	1800 6550 1650 6550
+Connection ~ 1800 6550
+Wire Wire Line
+	1800 6450 1800 6550
+Wire Wire Line
+	1050 6550 950  6550
+Wire Wire Line
+	1050 6550 1250 6550
+Connection ~ 1050 6550
+Wire Wire Line
+	1050 6450 1050 6550
+$Comp
+L Transistor_FET:2N7000 Q2
+U 1 1 5F821315
+P 1450 6450
+F 0 "Q2" V 1701 6450 50  0000 C CNN
+F 1 "2N7000" V 1792 6450 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline" H 1650 6375 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7000.pdf" H 1450 6450 50  0001 L CNN
+	1    1450 6450
+	0    1    1    0   
+$EndComp
+Text Label 950  5600 2    50   ~ 0
+L_pH_SNS
+Text Label 1900 5600 0    50   ~ 0
+H_pH_SNS
+Wire Wire Line
+	1800 5200 1800 5300
+$Comp
+L power:+5V #PWR0102
+U 1 1 5F81BBB6
+P 1800 5200
+F 0 "#PWR0102" H 1800 5050 50  0001 C CNN
+F 1 "+5V" H 1815 5373 50  0000 C CNN
+F 2 "" H 1800 5200 50  0001 C CNN
+F 3 "" H 1800 5200 50  0001 C CNN
+	1    1800 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1050 5250 1050 5300
+Wire Wire Line
+	1450 5250 1050 5250
+Wire Wire Line
+	1450 5300 1450 5250
+Connection ~ 1050 5250
+Wire Wire Line
+	1050 5200 1050 5250
+$Comp
+L power:+3V3 #PWR0101
+U 1 1 5F81AB27
+P 1050 5200
+F 0 "#PWR0101" H 1050 5050 50  0001 C CNN
+F 1 "+3V3" H 1065 5373 50  0000 C CNN
+F 2 "" H 1050 5200 50  0001 C CNN
+F 3 "" H 1050 5200 50  0001 C CNN
+	1    1050 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1800 5600 1900 5600
+Wire Wire Line
+	1800 5600 1650 5600
+Connection ~ 1800 5600
+Wire Wire Line
+	1800 5500 1800 5600
+Wire Wire Line
+	1050 5600 950  5600
+Wire Wire Line
+	1050 5600 1250 5600
+Connection ~ 1050 5600
+Wire Wire Line
+	1050 5500 1050 5600
+$Comp
+L Transistor_FET:2N7000 Q1
+U 1 1 5F81829E
+P 1450 5500
+F 0 "Q1" V 1701 5500 50  0000 C CNN
+F 1 "2N7000" V 1792 5500 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline" H 1650 5425 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7000.pdf" H 1450 5500 50  0001 L CNN
+	1    1450 5500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R4
+U 1 1 5F817DC5
+P 1800 5400
+F 0 "R4" H 1859 5446 50  0000 L CNN
+F 1 "10k" H 1859 5355 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1800 5400 50  0001 C CNN
+F 3 "~" H 1800 5400 50  0001 C CNN
+	1    1800 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R1
+U 1 1 5F818D3C
+P 1050 5400
+F 0 "R1" H 1109 5446 50  0000 L CNN
+F 1 "10k" H 1109 5355 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1050 5400 50  0001 C CNN
+F 3 "~" H 1050 5400 50  0001 C CNN
+	1    1050 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R5
+U 1 1 5F82130F
+P 1800 6350
+F 0 "R5" H 1859 6396 50  0000 L CNN
+F 1 "10k" H 1859 6305 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1800 6350 50  0001 C CNN
+F 3 "~" H 1800 6350 50  0001 C CNN
+	1    1800 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R2
+U 1 1 5F82131B
+P 1050 6350
+F 0 "R2" H 1109 6396 50  0000 L CNN
+F 1 "10k" H 1109 6305 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1050 6350 50  0001 C CNN
+F 3 "~" H 1050 6350 50  0001 C CNN
+	1    1050 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R10
+U 1 1 5F901D74
+P 3250 7300
+F 0 "R10" H 3309 7346 50  0000 L CNN
+F 1 "10k" H 3309 7255 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3250 7300 50  0001 C CNN
+F 3 "~" H 3250 7300 50  0001 C CNN
+	1    3250 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R8
+U 1 1 5F901D80
+P 2500 7300
+F 0 "R8" H 2559 7346 50  0000 L CNN
+F 1 "10k" H 2559 7255 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 2500 7300 50  0001 C CNN
+F 3 "~" H 2500 7300 50  0001 C CNN
+	1    2500 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R6
+U 1 1 5F8377F6
+P 1800 7300
+F 0 "R6" H 1859 7346 50  0000 L CNN
+F 1 "10k" H 1859 7255 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1800 7300 50  0001 C CNN
+F 3 "~" H 1800 7300 50  0001 C CNN
+	1    1800 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCU_Microchip_ATtiny:ATtiny85-20PU U1
+U 1 1 5F813D63
+P 2650 3250
+F 0 "U1" H 2121 3296 50  0000 R CNN
+F 1 "ATtiny85-20PU" H 2121 3205 50  0000 R CNN
+F 2 "Package_DIP:DIP-8_W7.62mm_Socket_LongPads" H 2650 3250 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf" H 2650 3250 50  0001 C CNN
+	1    2650 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R3
+U 1 1 5F837802
+P 1050 7300
+F 0 "R3" H 1109 7346 50  0000 L CNN
+F 1 "10k" H 1109 7255 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1050 7300 50  0001 C CNN
+F 3 "~" H 1050 7300 50  0001 C CNN
+	1    1050 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 5FC88760
+P 2000 1000
+F 0 "H1" H 2100 1046 50  0000 L CNN
+F 1 "Mounting" H 2100 955 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 2000 1000 50  0001 C CNN
+F 3 "~" H 2000 1000 50  0001 C CNN
+	1    2000 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 5FC89120
+P 2000 1500
+F 0 "H2" H 2100 1546 50  0000 L CNN
+F 1 "Mounting" H 2100 1455 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 2000 1500 50  0001 C CNN
+F 3 "~" H 2000 1500 50  0001 C CNN
+	1    2000 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 5FC8938B
+P 2500 1500
+F 0 "H4" H 2600 1546 50  0000 L CNN
+F 1 "Mounting" H 2600 1455 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 2500 1500 50  0001 C CNN
+F 3 "~" H 2500 1500 50  0001 C CNN
+	1    2500 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 5FC89570
+P 2500 1000
+F 0 "H3" H 2600 1046 50  0000 L CNN
+F 1 "Mounting" H 2600 955 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 2500 1000 50  0001 C CNN
+F 3 "~" H 2500 1000 50  0001 C CNN
+	1    2500 1000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
