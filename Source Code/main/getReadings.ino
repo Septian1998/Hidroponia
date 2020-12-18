@@ -3,6 +3,7 @@ void getReadings()
     //baca sensor temperatur
     sensors.requestTemperatures(); 
     suhu = sensors.getTempCByIndex(0); // Temperatur dalam Celsius
+    
     //temperature = sensors.getTempFByIndex(0); // Temperatur dalam Fahrenheit
     //Serial.print("Temperature: ");
     //Serial.println(temperature);

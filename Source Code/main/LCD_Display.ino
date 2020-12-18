@@ -7,6 +7,10 @@ void LCD_Display()
     lcd.print("TDS : " + String(TDSValue));
     lcd.setCursor(0, 2);
     lcd.print("Suhu: " + String(suhu));
+    lcd.setCursor(8, 2);
+    lcd.write(0);
+    lcd.setCursor(9, 2);
+    lcd.print("C");
     lcd.setCursor(14, 0);
     lcd.print("|");
     lcd.setCursor(14, 1);

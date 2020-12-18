@@ -15,19 +15,15 @@ float MFs(float in, float a, float b, float c)
     else return (c-in)/(c-b);
 }
 
-float MFt1(float in, float a, float b)
-{
-    if (in <= a) return 1;
+float MFt1(float in, float a, float b){
+    if (in <= a) return 1.0;
     else if(in > a && in < b) return (b-in)/(b-a);
-    else if(in >= b) return 0;
-}
+    else /*if(in >= b)*/ return 0;}
 
-float MFt2(float in, float a, float b)
-{
+float MFt2(float in, float a, float b){
     if (in <= a) return 0;
     else if(in > a  && in < b) return (in-a)/(b-a);
-    else if(in >= b) return 1;
-}
+    else /*if(in >= b)*/ return 1.0;}
 
 float fuzzy(float e, float dE)
 {

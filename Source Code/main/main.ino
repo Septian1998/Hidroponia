@@ -46,7 +46,7 @@ float avgTDS, avgTDSValue, TDSValue, jumlahTDS;
 //String strTDS, strpH;
 
 //variable suhu
-float suhu;
+int suhu;
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
@@ -72,6 +72,8 @@ String formatedDate;
 String dayStamp;
 String timeStamp;
 
+byte derajat[] = {0x06, 0x09, 0x09, 0x06, 0x00, 0x00, 0x00, 0x00};
+
 void setup()
 {
     Serial.begin(115200);
@@ -79,7 +81,7 @@ void setup()
     kran1.attach(13);
     lcd.begin();
     lcd.backlight();
-    
+    lcd.createChar(0, derajat);
     //konek ke Wi-Fi network dengan SSI dan password
     //Serial.print("Connecting to ");
     //Serial.println(ssid);
@@ -129,6 +131,8 @@ void setup()
     //    Serial.println("File already exists");  
     //}
     file.close();
+
+
 }
 
 void FLC(void * pvParameters)
@@ -136,7 +140,7 @@ void FLC(void * pvParameters)
     for(;;)
     {
         float sp= 4.9;
-        float error_1, er, dError;
+        float error_1, er=0, dError;
         float def;
         getReadings();
         error_1 = er;
