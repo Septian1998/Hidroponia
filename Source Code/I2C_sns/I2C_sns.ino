@@ -26,7 +26,7 @@ Andreas Spiess, 2015
 #define pHup_T PB4
 #define pHup_E PB4
 
-#define MAX_DISTANCE 50 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
+#define MAX_DISTANCE 400 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 NewPing SensorAmix (Amix_T, Amix_E, MAX_DISTANCE);  // Define left Sensor
 NewPing SensorBmix (Bmix_T, Bmix_E, MAX_DISTANCE);  // Define middle Sensor

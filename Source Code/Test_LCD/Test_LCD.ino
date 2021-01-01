@@ -9,7 +9,7 @@
 
 // set LCD address, number of columns and rows
 // if you don't know your display address, run an I2C scanner sketch
-LiquidCrystal_I2C lcd(0x27, 20, 4);  
+LiquidCrystal_I2C lcd(0x27, 16, 2);  
 
 void setup(){
   // initialize LCD

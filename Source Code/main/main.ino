@@ -155,7 +155,8 @@ void FLC(void * pvParameters)
 }
 
 void loop()
-{   if((millis() - lastTimeLCD) > timerDelayLCD)
+{   
+    if((millis() - lastTimeLCD) > timerDelayLCD)
     {
         getTimeStamp();
         LCD_Display();
