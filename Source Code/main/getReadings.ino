@@ -8,8 +8,15 @@ void getReadings()
     //Serial.print("Temperature: ");
     //Serial.println(temperature);
 
+    distance[Amix] = SensorAmix.ping_cm();
+    delay(100);
+    distance[Bmix] = SensorBmix.ping_cm();
+    delay(100);
+    distance[pHup] = SensorpHup.ping_cm();
+    delay(100);
+    
     //baca sensor pH
-    for (int a = 0; a < 10; a++)
+    /*for (int a = 0; a < 10; a++)
     {
         valpH[a] = analogRead(pH_sns);
         delay(30);
@@ -38,4 +45,32 @@ void getReadings()
     avgTDS = jumlahTDS / 10;
     avgTDSValue = (avgTDS * 3.3) / 4095;
     TDSValue = -0.2606 * avgTDSValue  + 4.9147;
+
+    //Baca I2C sensor ultrasonic
+    //Serial.print("L");
+    while (readTiny(I2CSlaveAddress) < 255)
+    {
+        Serial.print("WT"); // wait for first byte
+    }
+    for (place = 0; place < 3; place++)
+    {
+        dist[place] = readTiny(I2CSlaveAddress);
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        Serial.print(dist[i]);
+        Serial.print(" ");
+    }
+    //Serial.println();
+    delay(200);*/
 }
+
+/*byte readTiny(int address)
+{
+    byte hh ;
+    long entry = millis();
+    Wire.requestFrom(address, 1);                  // The TinyWire library only allows for one byte to be requested at a time
+    while (Wire.available() == 0 && (millis() - entry) < 100)  Serial.print("W");
+    if  (millis() - entry < 100) hh = Wire.read();
+    return hh;
+}*/

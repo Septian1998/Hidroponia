@@ -3,6 +3,9 @@
 #include "SD.h"
 #include <SPI.h>
 
+//library untuk I2C sensor
+#include <Wire.h>
+
 //library untuk DS18b20
 #include <OneWire.h>
 #include <DallasTemperature.h>
@@ -19,13 +22,35 @@
 //library untuk Servo
 #include <Servo_ESP32.h>
 
+//library untuk Ultrasonik
+#include <NewPing.h>
+
 #define pH_sns 34
 #define TDS_sns 35
+#define I2CSlaveAddress 8
 //#define temp_sns 32
 
 #define ssid "Bang Bud"
 #define pass "septian19"
 #define SD_CS 5
+
+//Pin Ultrasonic
+#define A_TRIG 33
+#define A_ECHO 25
+#define B_TRIG 26
+#define B_ECHO 27
+#define pH_TRIG 4
+#define pH_ECHO 2
+
+#define MAX_DISTANCE 400
+
+#define Amix 0  //Amix
+#define Bmix 2  //bmix
+#define pHup 1  //pHup
+
+NewPing SensorAmix (A_TRIG, A_ECHO, MAX_DISTANCE);  // Deklarasi Tangki Amix
+NewPing SensorBmix (B_TRIG, B_ECHO, MAX_DISTANCE);  // Deklarasi Tangki Bmix
+NewPing SensorpHup (pH_TRIG, pH_ECHO, MAX_DISTANCE);  // Deklarasi Tangki pH
 
 TaskHandle_t TaskFLC;
 
@@ -64,7 +89,7 @@ WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
 
 //definisikan servo
-Servo kran1;
+Servo A_MIX, B_MIX, pH_MIX;
 //float def;
 
 //Variebel untuk menyimpan tanggal dan waktu
@@ -74,11 +99,22 @@ String timeStamp;
 
 byte derajat[] = {0x06, 0x09, 0x09, 0x06, 0x00, 0x00, 0x00, 0x00};
 
+int distance[3];
+
 void setup()
 {
+    Wire.begin();
     Serial.begin(115200);
     xTaskCreatePinnedToCore(FLC, "TaskFLC", 10000, NULL, 1, &TaskFLC, 0);
-    kran1.attach(13);
+    A_MIX.attach(13);
+    B_MIX.attach(14);
+    pH_MIX.attach(12);
+    /*pinMode(A_TRIG,OUTPUT);
+    pinMode(A_ECHO,INPUT);
+    pinMode(B_TRIG,OUTPUT);
+    pinMode(B_ECHO,INPUT);
+    pinMode(pH_TRIG,OUTPUT);
+    pinMode(pH_ECHO,INPUT);*/
     lcd.begin();
     lcd.backlight();
     lcd.createChar(0, derajat);
@@ -150,7 +186,7 @@ void FLC(void * pvParameters)
         Serial.println("derror: " + String(dError));
         def = fuzzy(er, dError);
         Serial.println(round(def));
-        kran1.write(round(def));
+        A_MIX.write(round(def));
     }
 }
 

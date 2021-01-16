@@ -1,21 +1,14 @@
-
-
-/*
-
-This sketch runs on an ATtiny85 connected to an Arduino Mega running a receiver sketch
-This sketch gets distance data from three ultrasonic sensors and transmits it to the Arduino when requested
-
-Andreas Spiess, 2015
-
-*/
-
 #include <TinyWireS.h>       // Requires fork by Rambo with onRequest support
-#include <NewPing.h>         // NewPing version 1.7
+//#include <NewPing.h>         // NewPing version 1.7
 #include <avr/wdt.h>         // watchdog
 
-#define Amix 0  //Amix
-#define Bmix 2  //bmix
-#define pHup 1  //pHup
+#define tds 0  //Amix
+#define ph 1  //pHup
+
+#define tds_sns PB3
+#define ph_sns PB4
+
+/*#define Bmix 2  //bmix
 
 #define Amix_T PB1
 #define Amix_E PB1
@@ -30,12 +23,11 @@ Andreas Spiess, 2015
 
 NewPing SensorAmix (Amix_T, Amix_E, MAX_DISTANCE);  // Define left Sensor
 NewPing SensorBmix (Bmix_T, Bmix_E, MAX_DISTANCE);  // Define middle Sensor
-NewPing SensorpHup (pHup_T, pHup_E, MAX_DISTANCE);  // Define right Sensor
-
+NewPing SensorpHup (pHup_T, pHup_E, MAX_DISTANCE);  // Define right Sensor*/
 
 const int I2CSlaveAddress = 8;      // I2C Address.
 
-int distance[3];                    // Where the Distance is stored (8 bit unsigned)
+int sensor[3];                    // Where the sensor is stored (8 bit unsigned)
 int place = 0;
 unsigned long start;
 
@@ -60,13 +52,13 @@ void transmit()
       hh = 255;               // start byte
       break;
     case 1:
-      hh = distance[Amix];    // Send last recorded distance for current sensor
+      hh = sensor[tds];    // Send last recorded distance for current sensor
       break;
     case 2:
-      hh = distance[Bmix];    // Send last recorded distance for current sensor
+      hh = sensor[ph];    // Send last recorded distance for current sensor
       break;
     case 3:
-      hh = distance[pHup];    // Send last recorded distance for current sensor
+      hh = sensor[ph];    // Send last recorded distance for current sensor
       break;
   }
   TinyWireS.send(hh);
@@ -76,10 +68,8 @@ void transmit()
 
 void readDistance()
 {
-  distance[Amix] = SensorAmix.ping_cm();
+  sensor[tds] = analogRead(tds_sns);
   delay(20);
-  distance[Bmix] = SensorBmix.ping_cm();
-  delay(20);
-  distance[pHup] = SensorpHup.ping_cm();
+  sensor[ph] = analogRead(ph_sns);
   delay(20);
 }

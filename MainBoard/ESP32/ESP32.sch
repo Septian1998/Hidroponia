@@ -28,34 +28,34 @@ $EndComp
 $Comp
 L Connector:Conn_01x04_Male J1
 U 1 1 5F815AB8
-P 950 2650
-F 0 "J1" H 1058 2931 50  0000 C CNN
-F 1 "Ultrasonic_1" H 1058 2840 50  0000 C CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 950 2650 50  0001 C CNN
-F 3 "~" H 950 2650 50  0001 C CNN
-	1    950  2650
+P 5550 1150
+F 0 "J1" H 5658 1431 50  0000 C CNN
+F 1 "A MIX" H 5658 1340 50  0000 C CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 5550 1150 50  0001 C CNN
+F 3 "~" H 5550 1150 50  0001 C CNN
+	1    5550 1150
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x04_Male J2
 U 1 1 5F81613D
-P 950 3200
-F 0 "J2" H 1058 3481 50  0000 C CNN
-F 1 "Ultrasonic_2" H 1058 3390 50  0000 C CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 950 3200 50  0001 C CNN
-F 3 "~" H 950 3200 50  0001 C CNN
-	1    950  3200
+P 5550 1700
+F 0 "J2" H 5658 1981 50  0000 C CNN
+F 1 "B MIX" H 5658 1890 50  0000 C CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 5550 1700 50  0001 C CNN
+F 3 "~" H 5550 1700 50  0001 C CNN
+	1    5550 1700
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x04_Male J3
 U 1 1 5F816668
-P 950 3750
-F 0 "J3" H 1058 4031 50  0000 C CNN
-F 1 "Ultrasonic_3" H 1058 3940 50  0000 C CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 950 3750 50  0001 C CNN
-F 3 "~" H 950 3750 50  0001 C CNN
-	1    950  3750
+P 5550 2250
+F 0 "J3" H 5658 2531 50  0000 C CNN
+F 1 "pH" H 5658 2440 50  0000 C CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 5550 2250 50  0001 C CNN
+F 3 "~" H 5550 2250 50  0001 C CNN
+	1    5550 2250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -138,24 +138,12 @@ Wire Wire Line
 	8800 2500 8700 2500
 Wire Wire Line
 	8800 2600 8700 2600
-Text Label 8700 1700 2    50   ~ 0
+Text Label 3350 3250 0    50   ~ 0
 L_pH_SNS
-Text Label 8700 1800 2    50   ~ 0
+Text Label 3350 3350 0    50   ~ 0
 L_TDS_SNS
 Text Label 8700 1900 2    50   ~ 0
 TEMP_SNS
-Text Label 8700 2100 2    50   ~ 0
-OUT1
-Text Label 8700 2200 2    50   ~ 0
-OUT2
-Text Label 8700 2300 2    50   ~ 0
-OUT3
-Text Label 8700 2400 2    50   ~ 0
-OUT4
-Text Label 8700 2500 2    50   ~ 0
-OUT5
-Text Label 8700 2600 2    50   ~ 0
-OUT6
 Wire Wire Line
 	8800 2700 8700 2700
 $Comp
@@ -193,80 +181,53 @@ L_SDA
 $Comp
 L power:+5V #PWR0114
 U 1 1 5F85D590
-P 1500 2350
-F 0 "#PWR0114" H 1500 2200 50  0001 C CNN
-F 1 "+5V" H 1515 2523 50  0000 C CNN
-F 2 "" H 1500 2350 50  0001 C CNN
-F 3 "" H 1500 2350 50  0001 C CNN
-	1    1500 2350
+P 6100 850
+F 0 "#PWR0114" H 6100 700 50  0001 C CNN
+F 1 "+5V" H 6115 1023 50  0000 C CNN
+F 2 "" H 6100 850 50  0001 C CNN
+F 3 "" H 6100 850 50  0001 C CNN
+	1    6100 850 
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0115
 U 1 1 5F85D9FB
-P 1450 4150
-F 0 "#PWR0115" H 1450 3900 50  0001 C CNN
-F 1 "GND" H 1455 3977 50  0000 C CNN
-F 2 "" H 1450 4150 50  0001 C CNN
-F 3 "" H 1450 4150 50  0001 C CNN
-	1    1450 4150
+P 6050 2650
+F 0 "#PWR0115" H 6050 2400 50  0001 C CNN
+F 1 "GND" H 6055 2477 50  0000 C CNN
+F 2 "" H 6050 2650 50  0001 C CNN
+F 3 "" H 6050 2650 50  0001 C CNN
+	1    6050 2650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1150 2850 1450 2850
+	5750 1350 6050 1350
 Wire Wire Line
-	1450 2850 1450 3400
+	6050 1350 6050 1900
 Wire Wire Line
-	1150 2550 1500 2550
-Connection ~ 1500 2550
+	5750 1050 6100 1050
+Connection ~ 6100 1050
 Wire Wire Line
-	1500 2550 1500 2350
+	6100 1050 6100 850 
 Wire Wire Line
-	1150 3100 1500 3100
-Connection ~ 1500 3100
+	5750 1600 6100 1600
+Connection ~ 6100 1600
 Wire Wire Line
-	1500 3100 1500 2550
+	6100 1600 6100 1050
 Wire Wire Line
-	1150 3650 1500 3650
+	5750 2150 6100 2150
 Wire Wire Line
-	1500 3650 1500 3100
+	6100 2150 6100 1600
 Wire Wire Line
-	1150 3400 1450 3400
-Connection ~ 1450 3400
+	5750 1900 6050 1900
+Connection ~ 6050 1900
 Wire Wire Line
-	1450 3400 1450 3950
+	6050 1900 6050 2450
 Wire Wire Line
-	1150 3950 1450 3950
+	5750 2450 6050 2450
 Wire Wire Line
-	1150 2650 1150 2700
-Wire Wire Line
-	1150 2700 1200 2700
-Connection ~ 1150 2700
-Wire Wire Line
-	1150 2700 1150 2750
-Wire Wire Line
-	1150 3200 1150 3250
-Wire Wire Line
-	1150 3250 1200 3250
-Connection ~ 1150 3250
-Wire Wire Line
-	1150 3250 1150 3300
-Wire Wire Line
-	1150 3750 1150 3800
-Wire Wire Line
-	1150 3800 1200 3800
-Connection ~ 1150 3800
-Wire Wire Line
-	1150 3800 1150 3850
-Text Label 1200 2700 0    50   ~ 0
-US_1
-Text Label 1200 3250 0    50   ~ 0
-US_2
-Text Label 1200 3800 0    50   ~ 0
-US_3
-Wire Wire Line
-	1450 4150 1450 3950
-Connection ~ 1450 3950
+	6050 2650 6050 2450
+Connection ~ 6050 2450
 Wire Wire Line
 	3250 3050 3350 3050
 Wire Wire Line
@@ -281,12 +242,6 @@ Text Label 3350 2950 0    50   ~ 0
 H_SDA
 Text Label 3350 3150 0    50   ~ 0
 H_SCL
-Text Label 3350 3050 0    50   ~ 0
-US_1
-Text Label 3350 3250 0    50   ~ 0
-US_2
-Text Label 3350 3350 0    50   ~ 0
-US_3
 Wire Wire Line
 	2650 3850 2650 3950
 $Comp
@@ -707,54 +662,10 @@ L Connector:Conn_01x03_Male J11
 U 1 1 5F8FD0E6
 P 8300 4300
 F 0 "J11" H 8408 4581 50  0000 C CNN
-F 1 "OUT1" H 8408 4490 50  0000 C CNN
+F 1 "OUT2" H 8408 4490 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8300 4300 50  0001 C CNN
 F 3 "~" H 8300 4300 50  0001 C CNN
 	1    8300 4300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x03_Male J12
-U 1 1 5F8FD377
-P 8300 4750
-F 0 "J12" H 8408 5031 50  0000 C CNN
-F 1 "OUT1" H 8408 4940 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8300 4750 50  0001 C CNN
-F 3 "~" H 8300 4750 50  0001 C CNN
-	1    8300 4750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x03_Male J13
-U 1 1 5F8FE304
-P 8300 5200
-F 0 "J13" H 8408 5481 50  0000 C CNN
-F 1 "OUT1" H 8408 5390 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8300 5200 50  0001 C CNN
-F 3 "~" H 8300 5200 50  0001 C CNN
-	1    8300 5200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x03_Male J14
-U 1 1 5F8FE30A
-P 8300 5650
-F 0 "J14" H 8408 5931 50  0000 C CNN
-F 1 "OUT1" H 8408 5840 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8300 5650 50  0001 C CNN
-F 3 "~" H 8300 5650 50  0001 C CNN
-	1    8300 5650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x03_Male J15
-U 1 1 5F8FE310
-P 8300 6100
-F 0 "J15" H 8408 6381 50  0000 C CNN
-F 1 "OUT1" H 8408 6290 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8300 6100 50  0001 C CNN
-F 3 "~" H 8300 6100 50  0001 C CNN
-	1    8300 6100
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -771,23 +682,16 @@ $EndComp
 $Comp
 L power:GND #PWR0134
 U 1 1 5F93A53A
-P 8950 6300
-F 0 "#PWR0134" H 8950 6050 50  0001 C CNN
-F 1 "GND" H 8955 6127 50  0000 C CNN
-F 2 "" H 8950 6300 50  0001 C CNN
-F 3 "" H 8950 6300 50  0001 C CNN
-	1    8950 6300
+P 8950 4950
+F 0 "#PWR0134" H 8950 4700 50  0001 C CNN
+F 1 "GND" H 8955 4777 50  0000 C CNN
+F 2 "" H 8950 4950 50  0001 C CNN
+F 3 "" H 8950 4950 50  0001 C CNN
+	1    8950 4950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8500 6200 8950 6200
-Wire Wire Line
-	8950 6200 8950 6300
-Wire Wire Line
-	8950 6200 8950 5750
-Wire Wire Line
 	8950 3950 8500 3950
-Connection ~ 8950 6200
 Wire Wire Line
 	8500 4400 8950 4400
 Connection ~ 8950 4400
@@ -795,43 +699,14 @@ Wire Wire Line
 	8950 4400 8950 3950
 Wire Wire Line
 	8500 4850 8950 4850
-Connection ~ 8950 4850
 Wire Wire Line
 	8950 4850 8950 4400
-Wire Wire Line
-	8500 5300 8950 5300
-Connection ~ 8950 5300
-Wire Wire Line
-	8950 5300 8950 4850
-Wire Wire Line
-	8500 5750 8950 5750
-Connection ~ 8950 5750
-Wire Wire Line
-	8950 5750 8950 5300
-Text Label 8500 6000 0    50   ~ 0
-OUT6
-Text Label 8500 5550 0    50   ~ 0
-OUT5
-Text Label 8500 5100 0    50   ~ 0
-OUT4
 Text Label 8500 4650 0    50   ~ 0
 OUT3
 Text Label 8500 4200 0    50   ~ 0
 OUT2
 Text Label 8500 3750 0    50   ~ 0
 OUT1
-Wire Wire Line
-	8500 6100 9000 6100
-Wire Wire Line
-	8500 5650 9000 5650
-Connection ~ 9000 5650
-Wire Wire Line
-	9000 5650 9000 6100
-Wire Wire Line
-	8500 5200 9000 5200
-Connection ~ 9000 5200
-Wire Wire Line
-	9000 5200 9000 5650
 Wire Wire Line
 	8500 3850 9000 3850
 Connection ~ 9000 3850
@@ -844,9 +719,6 @@ Wire Wire Line
 	9000 3850 9000 4300
 Wire Wire Line
 	8500 4750 9000 4750
-Connection ~ 9000 4750
-Wire Wire Line
-	9000 4750 9000 5200
 Wire Wire Line
 	9000 4300 9000 4750
 Connection ~ 10500 5400
@@ -1406,4 +1278,66 @@ F 3 "~" H 2500 1000 50  0001 C CNN
 	1    2500 1000
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5750 2250 5850 2250
+Wire Wire Line
+	5750 2350 5850 2350
+Wire Wire Line
+	5750 1700 5850 1700
+Wire Wire Line
+	5750 1800 5850 1800
+Wire Wire Line
+	5750 1150 5850 1150
+Wire Wire Line
+	5750 1250 5850 1250
+Text Label 8700 2400 2    50   ~ 0
+OUT1
+Text Label 8700 2500 2    50   ~ 0
+OUT2
+Text Label 8700 2600 2    50   ~ 0
+OUT3
+$Comp
+L Connector:Conn_01x03_Male J12
+U 1 1 5F8FD377
+P 8300 4750
+F 0 "J12" H 8408 5031 50  0000 C CNN
+F 1 "OUT3" H 8408 4940 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8300 4750 50  0001 C CNN
+F 3 "~" H 8300 4750 50  0001 C CNN
+	1    8300 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8950 4950 8950 4850
+Connection ~ 8950 4850
+Wire Wire Line
+	8800 2000 8700 2000
+Text Label 5850 1150 0    50   ~ 0
+A_TRIG
+Text Label 5850 1250 0    50   ~ 0
+A_ECHO
+Text Label 5850 1700 0    50   ~ 0
+B_TRIG
+Text Label 5850 1800 0    50   ~ 0
+B_ECHO
+Text Label 5850 2250 0    50   ~ 0
+pH_TRIG
+Text Label 5850 2350 0    50   ~ 0
+pH_ECHO
+Text Label 8700 2000 2    50   ~ 0
+A_TRIG
+Text Label 8700 2100 2    50   ~ 0
+A_ECHO
+Text Label 8700 2200 2    50   ~ 0
+B_TRIG
+Text Label 8700 2300 2    50   ~ 0
+B_ECHO
+Text Label 9900 2400 0    50   ~ 0
+pH_TRIG
+Text Label 9900 2500 0    50   ~ 0
+pH_ECHO
+Wire Wire Line
+	9800 2500 9900 2500
+Wire Wire Line
+	9800 2400 9900 2400
 $EndSCHEMATC

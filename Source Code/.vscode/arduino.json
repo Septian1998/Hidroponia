@@ -1,7 +1,7 @@
 {
-    "board": "esp32:esp32:esp32",
-    "configuration": "PSRAM=disabled,PartitionScheme=default,CPUFreq=240,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=none",
-    "sketch": "Test_LCD\\Test_LCD.ino",
+    "board": "diy_attiny:avr:attiny85_diy",
+    "configuration": "boot=optiboot,clock=8MHz,core=FullCore,print=BinHexDec,millis_ppm=1p6,lto=enable,bodlevel=2v7,advclk=auto,advfrq=auto,advups=auto",
+    "sketch": "I2C_sns\\I2C_sns.ino",
     "programmer": "AVRISP mkII",
     "port": "COM15"
 }
