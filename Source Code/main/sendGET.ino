@@ -3,7 +3,7 @@ void sendGET()
     if(WiFi.status() == WL_CONNECTED)
     {
         HTTPClient http;
-        String serverPath = address + "tds=1100&suhu=25&ph=7";
+        String serverPath = address + "simpandata?tinggi=" + tank[pHup] + "&ph=" + pHValue + "&ec=" + TDSValue;
         http.begin(serverPath.c_str());
         int httpResponseCode = http.GET();
         if (httpResponseCode>0)

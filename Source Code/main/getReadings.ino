@@ -1,18 +1,11 @@
 void getReadings()
 {
-    //baca sensor temperatur
-    sensors.requestTemperatures(); 
-    suhu = sensors.getTempCByIndex(0); // Temperatur dalam Celsius
-    
-    //temperature = sensors.getTempFByIndex(0); // Temperatur dalam Fahrenheit
-    //Serial.print("Temperature: ");
-    //Serial.println(temperature);
-
-    distance[Amix] = SensorAmix.ping_cm();
+    //baca sensor jarak dan konversi ke mL
+    tank[Amix] = get_tank(A_TRIG, A_ECHO);
     delay(100);
-    distance[Bmix] = SensorBmix.ping_cm();
+    tank[Bmix] = get_tank(B_TRIG, B_ECHO);
     delay(100);
-    distance[pHup] = SensorpHup.ping_cm();
+    tank[pHup] = get_tank(pH_TRIG, pH_ECHO);
     delay(100);
     
     //baca sensor pH
@@ -27,11 +20,12 @@ void getReadings()
         jumlahpH += valpH[b];
     }
     avgpH = jumlahpH / 10;
-    avgpHValue = (avgpH * 3.3) / 4095;
-    pHValue = -0.2606 * avgpHValue  + 4.9147; //-5.70 adalah gradien dan 21.34 adalah koefisien kalibrasi
-    //Serial.println(pHValue);
+    pHValue = -0.0092 * avgpH  + 28.078; //-0.0092 adalah gradien dan 28.078 adalah koefisien kalibrasi
+    //Serial.println(pHValue);*/
 
     //baca sensor TDS
+    /*digitalWrite(TDS_sw, HIGH);
+    analogRead(TDS_sns);
     for (int j = 0; j < 10; j++)
     {
         valTDS[j] = analogRead(TDS_sns);
@@ -43,34 +37,25 @@ void getReadings()
         jumlahTDS += valTDS[k];
     }
     avgTDS = jumlahTDS / 10;
-    avgTDSValue = (avgTDS * 3.3) / 4095;
-    TDSValue = -0.2606 * avgTDSValue  + 4.9147;
-
-    //Baca I2C sensor ultrasonic
-    //Serial.print("L");
-    while (readTiny(I2CSlaveAddress) < 255)
-    {
-        Serial.print("WT"); // wait for first byte
-    }
-    for (place = 0; place < 3; place++)
-    {
-        dist[place] = readTiny(I2CSlaveAddress);
-    }
-    for (int i = 0; i < 3; i++)
-    {
-        Serial.print(dist[i]);
-        Serial.print(" ");
-    }
-    //Serial.println();
-    delay(200);*/
+    TDSValue = 2.5927 * avgTDS  - 2014.9; // 2.5927 adalah gradien dan 2014.9 adalah koefisien kalibrasi
+    digitalWrite(TDS_sw, LOW);*/
 }
 
-/*byte readTiny(int address)
+int get_tank(int trig, int echo)
 {
-    byte hh ;
-    long entry = millis();
-    Wire.requestFrom(address, 1);                  // The TinyWire library only allows for one byte to be requested at a time
-    while (Wire.available() == 0 && (millis() - entry) < 100)  Serial.print("W");
-    if  (millis() - entry < 100) hh = Wire.read();
-    return hh;
-}*/
+    // bersihkan trigPin
+    digitalWrite(trig, LOW);
+    delayMicroseconds(2);
+
+    // Menyetel trigPin ke status HIGH selama 10 mikrodetik
+    digitalWrite(trig, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trig, LOW);
+
+    // Membaca echoPin, mengembalikan waktu tempuh gelombang suara dalam mikrodetik
+    long duration = pulseIn(echo, HIGH);
+
+    // Menghitung jarak
+    int cm=duration*0.034/2;
+    return 100*(7.5-cm);
+}

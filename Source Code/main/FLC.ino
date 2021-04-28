@@ -32,16 +32,16 @@ float fuzzy(float e, float dE)
     float opZ, opS, opM, opB, opL;
     float out;
 
-    ErZ = MFt1(e, 0.1, 0.2);
-    ErS = MFs(e, 0.1, 0.2, 0.3);
-    ErM = MFs(e, 0.2, 0.4, 0.6);
-    ErB = MFt2(e, 0.5, 0.6);
+    ErZ = MFt1(e, 0, 0.15);
+    ErS = MFs(e, 0, 0.15, 0.3);
+    ErM = MFs(e, 0.15, 0.3, 0.45);
+    ErB = MFt2(e, 0.3, 0.45);
     //Serial.println(String(ErZ) + "," + String(ErS) + "," + String(ErM) + "," + String(ErB));
 
-    dEZ = MFt1(dE, 0.1, 0.2);
-    dES = MFs(dE, 0.1, 0.2, 0.3);
-    dEM = MFs(dE, 0.2, 0.4, 0.6);
-    dEB = MFt2(dE, 0.5, 0.6);
+    dEZ = MFt1(dE, 0, 0.15);
+    dES = MFs(dE, 0, 0.15, 0.3);
+    dEM = MFs(dE, 0.15, 0.3, 0.45);
+    dEB = MFt2(dE, 0.3, 0.45);
     //Serial.println(String(dEZ) + "," + String(dES) + "," + String(dEM) + "," + String(dEB));
 
     #define oZ 0

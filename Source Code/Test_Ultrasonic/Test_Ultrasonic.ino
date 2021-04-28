@@ -1,5 +1,5 @@
-const int TRIG_PIN = 27;
-const int ECHO_PIN = 14;
+const int TRIG_PIN = 26;
+const int ECHO_PIN = 27;
  
 void setup() {
   // initialize serial communication:
@@ -22,7 +22,7 @@ void loop()
   duration = pulseIn(ECHO_PIN,HIGH);
  
   // convert the time into a distance
-  distanceCm = duration / 29.1 / 2 ;
+  distanceCm = (duration*0.034/2)-0.3;
   distanceIn = duration / 74 / 2;
  
   if (distanceCm <= 0){
