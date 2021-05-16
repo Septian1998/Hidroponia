@@ -56,6 +56,6 @@ int get_tank(int trig, int echo)
     long duration = pulseIn(echo, HIGH);
 
     // Menghitung jarak
-    int cm=duration*0.034/2;
+    float cm=0.0195 * duration - 0.6379;;
     return 100*(7.5-cm);
 }
