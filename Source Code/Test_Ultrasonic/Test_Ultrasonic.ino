@@ -11,7 +11,7 @@ void setup() {
  
 void loop()
 {
-   long duration, distanceCm, distanceIn;
+   float duration, distanceCm;// distanceIn;
  
   // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
   digitalWrite(TRIG_PIN, LOW);
@@ -22,15 +22,15 @@ void loop()
   duration = pulseIn(ECHO_PIN,HIGH);
  
   // convert the time into a distance
-  distanceCm = (duration*0.034/2)-0.3;
-  distanceIn = duration / 74 / 2;
+  distanceCm = 0.0195 * duration - 0.6379; //duration/62.4; 0,0182x - 0,1605
+  //distanceIn = duration / 74 / 2;
  
   if (distanceCm <= 0){
     Serial.println("Out of range");
   }
   else {
-    Serial.print(distanceIn);
-    Serial.print("in, ");
+    Serial.print(duration);
+    Serial.print(", ");
     Serial.print(distanceCm);
     Serial.print("cm");
     Serial.println();
